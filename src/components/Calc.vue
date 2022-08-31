@@ -6,12 +6,14 @@
       = {{ result }}
     </div>
     <div class="keyboard">
-<!--      <button @click="result = +op1 + +op2">+</button>-->
-<!--      <button @click="result = op1 + op2">+</button>-->
+      <!--      <button @click="result = +op1 + +op2">+</button>-->
+      <!--      <button @click="result = op1 + op2">+</button>-->
       <button @click="sum">+</button>
       <button @click="sub">-</button>
       <button @click="div">/</button>
       <button @click="mult">*</button>
+      <button @click="deg">**</button>
+      <button @click="idiv">//</button>
     </div>
   </div>
 </template>
@@ -25,17 +27,23 @@ export default {
     result: 0
   }),
   methods: {
-    sum () {
+    sum() {
       this.result = this.op1 + this.op2
     },
-    div () {
+    div() {
       this.result = this.op1 / this.op2
     },
-    sub () {
+    sub() {
       this.result = this.op1 - this.op2
     },
-    mult () {
+    mult() {
       this.result = this.op1 * this.op2
+    },
+    deg() {
+      this.result = Math.pow(this.op1, this.op2)
+    },
+    idiv() {
+      this.result = Math.floor(this.op1 / this.op2)
     }
   }
 }
