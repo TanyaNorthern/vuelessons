@@ -2,21 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-<!--    <button v-on:click="counter++">{{ counter }}</button>-->
-<!--    <button @click="counter++">{{ counter }}</button>-->
-<!--    <button @click="increase(2, $event)">{{ counter }}</button>-->
-<!--    <button @click="reset">Reset</button>-->
-<!--    <input-->
-<!--      type="text"-->
-<!--      placeholder="text"-->
-<!--      @blur="blur"-->
-<!--      @focus="focus"-->
-<!--      @change="change"-->
-<!--      @input="input"-->
-<!--      v-model.lazy="txt"-->
-<!--    >-->
-<!--    <p>{{ txt }}</p>-->
-    <Calc/>
+    <Calc v-if="show"/>
   </div>
 </template>
 
@@ -32,14 +18,30 @@ export default {
   },
   data: () => ({
     counter: 0,
-    txt: ''
+    show: true,
+    collection: [1, 2, 3, 4, 5, 6, 7],
+    arr: [
+      {
+        text: 'qwe',
+        show: true
+      },
+      {
+        text: 'rty',
+        show: true
+      },
+      {
+        text: 'uio',
+        show: false
+      }
+    ]
   }),
   methods: {
     increase (step, event) {
       console.log(event)
       this.counter += step
     },
-    reset () {
+    reset (event) {
+      console.log(event)
       this.counter = 0
     },
     blur () {
@@ -54,6 +56,7 @@ export default {
     input () {
       console.log('input')
     }
+
   }
 }
 </script>
